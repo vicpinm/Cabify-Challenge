@@ -1,0 +1,71 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.vicpin.cabifychallenge"
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+sourceSets{ main.java.srcDirs += 'src/main/kotlin' }
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.core:core-ktx:1.1.0-alpha04'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation project(":kpresenteradapter")
+    implementation project(":data")
+    implementation project(":domain")
+    implementation "org.koin:koin-core:$rootProject.koin"
+    implementation "org.koin:koin-android:$rootProject.koin"
+    implementation "org.koin:koin-androidx-viewmodel:$koin"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutines"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutines"
+    implementation "androidx.recyclerview:recyclerview:$recyclerview"
+    implementation "com.google.android.material:material:$material"
+
+    testImplementation 'junit:junit:4.12'
+    testImplementation "org.koin:koin-test:$rootProject.koin"
+
+    androidTestImplementation "androidx.test:core:$androidx_test"
+    androidTestImplementation "androidx.test:core-ktx:$androidx_test"
+
+    androidTestImplementation "androidx.test.ext:junit:$androidx_test"
+    androidTestImplementation "androidx.test:runner:$andoridx_runner"
+    androidTestImplementation "androidx.test:rules:$androidx_rules"
+    androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4') {
+        exclude group: 'javax.inject', module: 'javax.inject'
+        exclude group: 'com.squareup', module: 'javawriter'
+    }
+    androidTestImplementation 'com.android.support.test.espresso:espresso-contrib:2.2'
+    androidTestImplementation 'org.koin:koin-test:1.0.1'
+
+}

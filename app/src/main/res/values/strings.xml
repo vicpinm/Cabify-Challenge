@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">CabifyChallenge</string>
+    <string name="base_url">https://api.myjson.com</string>
+    <string name="add_to_cart">add to cart</string>
+    <string name="item_added_message">%s added to cart</string>
+    <string name="remove_item">Delete</string>
+    <string name="discounts_applied">Discounts applied: %s</string>
+    <string name="original_price">Original price: %s€</string>
+    <string name="final_price">Final price: %s€</string>
+    <string name="no_discount">No discount applied</string>
+    <string name="items_in__cart">Items added to cart: %d</string>
+    <string name="total">Total: %s€</string>
+    <string name="buy">Buy</string>
+
+
+</resources>
